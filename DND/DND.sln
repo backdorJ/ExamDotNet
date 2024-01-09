@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DND.Domain", "DND.Domain\DND.Domain.csproj", "{4E455838-B5F7-4056-9AE3-C7C70ED629E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DND.UI", "DND.UI\DND.UI.csproj", "{1A58E13B-BB74-481D-BC41-4B1EB843B500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DND.BL", "DND.BL\DND.BL.csproj", "{09F6ED7F-3BD0-439E-B4A7-4B9F7EE4691A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E455838-B5F7-4056-9AE3-C7C70ED629E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E455838-B5F7-4056-9AE3-C7C70ED629E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E455838-B5F7-4056-9AE3-C7C70ED629E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E455838-B5F7-4056-9AE3-C7C70ED629E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A58E13B-BB74-481D-BC41-4B1EB843B500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A58E13B-BB74-481D-BC41-4B1EB843B500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A58E13B-BB74-481D-BC41-4B1EB843B500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A58E13B-BB74-481D-BC41-4B1EB843B500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F6ED7F-3BD0-439E-B4A7-4B9F7EE4691A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F6ED7F-3BD0-439E-B4A7-4B9F7EE4691A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F6ED7F-3BD0-439E-B4A7-4B9F7EE4691A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F6ED7F-3BD0-439E-B4A7-4B9F7EE4691A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

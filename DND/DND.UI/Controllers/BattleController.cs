@@ -51,21 +51,9 @@ public class BattleController : Controller
         };
         var playerToJson = JsonSerializer.Serialize(player);
         
-        // var requestMessage = new HttpRequestMessage();
-        // requestMessage.Method = HttpMethod.Post;
-        // requestMessage.RequestUri = new Uri($"https://localhost:7254/api/BattleLogic??appellantJson={playerToJson}");
-        //
-        // using var response = await _client.SendAsync(requestMessage);
-        // var battleResult =  JsonSerializer.Deserialize<BattleResult>(await response.Content.ReadAsStringAsync())!;
-        // battleResult.IsFinish = true;
-        
-        // Create a StringContent with the JSON data    
         var content = new StringContent(playerToJson, Encoding.UTF8, "application/json");
-
-        // Send the HTTP POST request with the JSON data in the request body
         using var response = await _client.PostAsync("https://localhost:7254/api/BattleLogic", content);
 
-        // Deserialize the response content to BattleResult
         var battleResult = JsonSerializer.Deserialize<BattleResult>(await response.Content.ReadAsStringAsync())!;
         battleResult.IsFinish = true;
         

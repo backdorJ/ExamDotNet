@@ -1,5 +1,6 @@
 using DND.BL.Data;
 using DND.BL.Services.BattleLogic;
+using DND.BL.Services.Dice;
 using DND.BL.Services.Logger;
 using DND.Domain.BattleResultsDTO;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ builder.Services.AddTransient<BattleResult>();
 builder.Services.AddScoped<IDbContext, EfContext>();
 builder.Services.AddScoped<IBattleLogger, BattleLogger>();
 builder.Services.AddScoped<IBattleLogic, BattleLogic>();
+builder.Services.AddScoped<IDice, Dice>();
 
 builder.Services.AddScoped<Migrator>();
 

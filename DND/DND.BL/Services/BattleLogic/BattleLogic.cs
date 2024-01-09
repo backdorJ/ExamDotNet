@@ -1,3 +1,4 @@
+using DND.BL.Services.Dice;
 using DND.BL.Services.Logger;
 using DND.Domain.BattleResultsDTO;
 using DND.Domain.Entities;
@@ -8,13 +9,18 @@ namespace DND.BL.Services.BattleLogic;
 public class BattleLogic : IBattleLogic
 {
     private readonly IBattleLogger _logger;
+    private readonly IDice _dice;
 
     /// <summary>
     /// Конструктор
     /// </summary>
     /// <param name="logger">Логгер</param>
-    public BattleLogic(IBattleLogger logger)
-        => _logger = logger;
+    /// <param name="dice">Кубик который дает рандомное значение</param>
+    public BattleLogic(IBattleLogger logger, IDice dice)
+    {
+        _logger = logger;
+        _dice = dice;
+    }
 
     /// <summary>
     /// Игрок
@@ -110,7 +116,7 @@ public class BattleLogic : IBattleLogic
             JsonFromDamage = new DamageResult().ConvertToJson(),
         };
 
-        var attackDice = Random.Shared.Next(1, 21);
+        var attackDice = _dice.GetRandomNumber(20);
         attack.AttackDice = attackDice;
 
         switch (attackDice)
@@ -158,7 +164,7 @@ public class BattleLogic : IBattleLogic
         var damageWithDice = 0;
 
         for (var i = 0; i < EntityWhoAttack.DamageDiceThrowsNumber; i++)
-            damageWithDice += Random.Shared.Next(1, EntityWhoAttack.DamageWithDice + 1);
+            damageWithDice += _dice.GetRandomNumber(EntityWhoAttack.DamageWithDice);
 
         damage.DefaultDamageWithDice = damageWithDice;
         var resultDamage = (damageWithDice + EntityWhoAttack.DamageModifier + 1) * (isCritical ? 2 : 1);

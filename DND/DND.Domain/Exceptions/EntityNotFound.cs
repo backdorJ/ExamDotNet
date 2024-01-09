@@ -7,7 +7,7 @@ public class EntityNotFound<TEntity> : ArgumentBaseException
 {
     /// <inheritdoc />
     public EntityNotFound(string message)
-        : base($"Монстр не найден! {message}")
+        : base($"Монстр не найден! Сообщение {message}")
     {
     }
 }

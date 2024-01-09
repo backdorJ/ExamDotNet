@@ -167,7 +167,7 @@ public class BattleLogic : IBattleLogic
             damageWithDice += _dice.GetRandomNumber(EntityWhoAttack.DamageWithDice);
 
         damage.DefaultDamageWithDice = damageWithDice;
-        var resultDamage = (damageWithDice + EntityWhoAttack.DamageModifier + 1) * (isCritical ? 2 : 1);
+        var resultDamage = (damageWithDice + EntityWhoAttack.DamageModifier) * (isCritical ? 2 : 1);
         EntityWhoTarget.Health -= resultDamage;
         damage.HealthLeft = EntityWhoTarget.Health;
 

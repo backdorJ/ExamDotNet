@@ -1,0 +1,45 @@
+@model DND.Domain.BattleResultsDTO.BattleResult?
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="">
+<head>
+    <title>D&D</title>
+</head>
+<body>
+<h1 style="text-align: center">Welcome to D&D</h1>
+<div>
+    <pre>
+        @(Model is { IsFinish: true }
+            ? @Model.ToString()
+            : "")
+    </pre>
+</div>
+<div>
+    <form method="POST">
+        <header>Name</header>
+        <input type="text" name="name"/>
+        <header>HP</header>
+        <input type="number" min="20" max="100" name="health"/>
+        <header>Attack modifier</header>
+        <input type="number" max="50" name="attackModifier"/>
+        <header>Attack Per Round</header>
+        <input type="number" max="5" name="attackPerRound"/>
+        <header>Damage</header>
+        <input type="number" max="40" name="damageDiceThrowNumber"/>d
+        <input type="number" max="40" name="damageWithDice"/>
+        <header>Damage modifier</header>
+        <input type="number" max="40" name="damageModifier"/>
+        <header>Armor class</header>
+        <input type="number" max="200" name="armorClass"/>
+        <button type="submit">
+            To Battle!
+        </button>
+    </form>
+</div>
+</body>
+</html>

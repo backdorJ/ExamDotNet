@@ -16,7 +16,7 @@ builder.Services.AddDbContext<EfContext>(
 
 builder.Services.AddTransient<BattleResult>();
 builder.Services.AddScoped<IDbContext, EfContext>();
-builder.Services.AddScoped<IBattleLoggerService, BattleLoggerServiceService>();
+builder.Services.AddScoped<IBattleLoggerService, BattleLoggerService>();
 builder.Services.AddScoped<IBattleLogicService, BattleLogicService>();
 builder.Services.AddScoped<IDiceService, DiceService>();
 

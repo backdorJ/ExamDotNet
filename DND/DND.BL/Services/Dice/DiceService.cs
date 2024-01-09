@@ -1,6 +1,6 @@
 namespace DND.BL.Services.Dice;
 
-public class Dice : IDice
+public class DiceService : IDiceService
 {
     /// <inheritdoc />
     public int GetRandomNumber(int maxValue)

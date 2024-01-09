@@ -3,11 +3,11 @@ using DND.Domain.BattleResultsDTO;
 
 namespace DND.BL.Services.Logger;
 
-public class BattleLogger : IBattleLogger
+public class BattleLoggerServiceService : IBattleLoggerService
 {
     private readonly BattleResult _source;
 
-    public BattleLogger(BattleResult source)
+    public BattleLoggerServiceService(BattleResult source)
     {
         _source = source;
     }

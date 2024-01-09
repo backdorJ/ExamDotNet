@@ -1,6 +1,6 @@
 namespace DND.BL.Services.Dice;
 
-public interface IDice
+public interface IDiceService
 {
     int GetRandomNumber(int maxValue);
 }

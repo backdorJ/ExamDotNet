@@ -6,20 +6,20 @@ using DND.Domain.Enums;
 
 namespace DND.BL.Services.BattleLogic;
 
-public class BattleLogic : IBattleLogic
+public class BattleLogicService : IBattleLogicService
 {
-    private readonly IBattleLogger _logger;
-    private readonly IDice _dice;
+    private readonly IBattleLoggerService _loggerService;
+    private readonly IDiceService _diceService;
 
     /// <summary>
     /// Конструктор
     /// </summary>
-    /// <param name="logger">Логгер</param>
-    /// <param name="dice">Кубик который дает рандомное значение</param>
-    public BattleLogic(IBattleLogger logger, IDice dice)
+    /// <param name="loggerService">Логгер</param>
+    /// <param name="diceService">Кубик который дает рандомное значение</param>
+    public BattleLogicService(IBattleLoggerService loggerService, IDiceService diceService)
     {
-        _logger = logger;
-        _dice = dice;
+        _loggerService = loggerService;
+        _diceService = diceService;
     }
 
     /// <summary>
@@ -55,15 +55,15 @@ public class BattleLogic : IBattleLogic
         
         var roundNumber = 1;
         
-        _logger.MeetingLog(playerName: Player.Name, enemyName: Enemy.Name);
+        _loggerService.MeetingLog(playerName: Player.Name, enemyName: Enemy.Name);
         
         while (Winner is null)
-            _logger.RoundResultLog(GetRoundResult(roundNumber++));
+            _loggerService.RoundResultLog(GetRoundResult(roundNumber++));
         
-        _logger.WinnerLog(Winner == Player);
-        _logger.LeftHealthRemaining(Player.Health);
+        _loggerService.WinnerLog(Winner == Player);
+        _loggerService.LeftHealthRemaining(Player.Health);
         
-        return _logger.GetBattleLogger();
+        return _loggerService.GetBattleLogger();
     }
     
     /// <summary>
@@ -116,7 +116,7 @@ public class BattleLogic : IBattleLogic
             JsonFromDamage = new DamageResult().ConvertToJson(),
         };
 
-        var attackDice = _dice.GetRandomNumber(20);
+        var attackDice = _diceService.GetRandomNumber(20);
         attack.AttackDice = attackDice;
 
         switch (attackDice)
@@ -164,7 +164,7 @@ public class BattleLogic : IBattleLogic
         var damageWithDice = 0;
 
         for (var i = 0; i < EntityWhoAttack.DamageDiceThrowsNumber; i++)
-            damageWithDice += _dice.GetRandomNumber(EntityWhoAttack.DamageWithDice);
+            damageWithDice += _diceService.GetRandomNumber(EntityWhoAttack.DamageWithDice);
 
         damage.DefaultDamageWithDice = damageWithDice;
         var resultDamage = (damageWithDice + EntityWhoAttack.DamageModifier) * (isCritical ? 2 : 1);

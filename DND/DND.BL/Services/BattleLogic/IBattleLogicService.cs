@@ -3,7 +3,7 @@ using DND.Domain.Entities;
 
 namespace DND.BL.Services.BattleLogic;
 
-public interface IBattleLogic
+public interface IBattleLogicService
 {
     BattleResult Run(Entity player, Entity enemy);
 }

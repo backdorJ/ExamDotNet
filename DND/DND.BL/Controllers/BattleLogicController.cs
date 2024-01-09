@@ -16,17 +16,17 @@ namespace DND.BL.Controllers;
 public class BattleLogicController : Controller
 {
     private readonly IDbContext _dbContext;
-    private readonly IBattleLogic _battleLogic;
+    private readonly IBattleLogicService _battleLogicService;
 
     /// <summary>
     /// Конструктор
     /// </summary>
     /// <param name="dbContext">Контекст БД</param>
-    /// <param name="battleLogic">Логика игры</param>
-    public BattleLogicController(IDbContext dbContext, IBattleLogic battleLogic)
+    /// <param name="battleLogicService">Логика игры</param>
+    public BattleLogicController(IDbContext dbContext, IBattleLogicService battleLogicService)
     {
         _dbContext = dbContext;
-        _battleLogic = battleLogic;
+        _battleLogicService = battleLogicService;
     }
 
     [HttpPost]
@@ -37,7 +37,7 @@ public class BattleLogicController : Controller
             ?? throw new EntityNotFound<Entity>("Попробуйте еще раз!");
 
 
-        var result = _battleLogic.Run(player: appelant, enemy: randomMonster);
+        var result = _battleLogicService.Run(player: appelant, enemy: randomMonster);
 
         return JsonSerializer.Serialize(result);
     }

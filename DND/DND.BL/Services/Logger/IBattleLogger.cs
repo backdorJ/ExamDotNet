@@ -2,7 +2,7 @@ using DND.Domain.BattleResultsDTO;
 
 namespace DND.BL.Services.Logger;
 
-public interface IBattleLogger
+public interface IBattleLoggerService
 {
     void MeetingLog(string playerName, string enemyName);
     void WinnerLog(bool isPlayerWin);
